@@ -10,7 +10,8 @@ namespace RegExp
             Pattern pattern = new Pattern();
             // pattern.IsValidFirstName();
             //pattern.IsValidLastName();
-            pattern.IsValidEmail();
+            //pattern.IsValidEmail();
+            pattern.IsValidPhoneNo();
         }
     }
 }
