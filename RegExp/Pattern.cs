@@ -96,6 +96,15 @@ namespace RegExp
             }
             while (!flag);
         }
+        public void IsValidSampleEmail(string SampleEmail)
+        {
+            bool flag = (Regex.IsMatch(SampleEmail, Regex_email));
+            if (flag == true)
+                Console.WriteLine("valid");
+            else
+                Console.WriteLine("Invalid");
+
+        }
 
     }
 }
