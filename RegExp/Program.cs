@@ -7,6 +7,8 @@ namespace RegExp
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to User registration");
+            Pattern pattern = new Pattern();
+            pattern.IsValidFirstName();
         }
     }
 }
