@@ -11,7 +11,7 @@ namespace RegExp
         public static string Regex_name = "^[A-Z]{1}[a-z]{2,}$";
         public static string Regex_email = "^[0-9A-Za-z]+([._+-][0-9A-Za-z]+)*[@][0-9A-Za-z]+.[a-zA-Z]{2,3}(.[a-zA-Z]{2})?$";
         public static string Regex_phone = "^[1-9]{1}[0-9]{1}\\s[1-9]{1}[0-9]{9}$";
-        public static string Regex_password = "^[a-zA-Z0-9]{8,}$";
+        public static string Regex_password = "(?=.*[A-Z])[a-zA-Z0-9]{8,}$";
         public void IsValidFirstName()
         {
             bool flag;
@@ -80,7 +80,7 @@ namespace RegExp
             while (!flag);
         }
 
-        public void IsValidPasswordRule1()
+        public void IsValidPasswordRule2()
         {
             bool flag;
             Console.WriteLine("Enter the Password: minimum 8 character");

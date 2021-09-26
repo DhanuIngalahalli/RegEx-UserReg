@@ -12,7 +12,7 @@ namespace RegExp
             //pattern.IsValidLastName();
             //pattern.IsValidEmail();
            // pattern.IsValidPhoneNo();
-            pattern.IsValidPasswordRule1();
+            pattern.IsValidPasswordRule2();
         }
     }
 }
