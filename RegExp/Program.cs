@@ -11,7 +11,8 @@ namespace RegExp
             // pattern.IsValidFirstName();
             //pattern.IsValidLastName();
             //pattern.IsValidEmail();
-            pattern.IsValidPhoneNo();
+           // pattern.IsValidPhoneNo();
+            pattern.IsValidPasswordRule1();
         }
     }
 }
