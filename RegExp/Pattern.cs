@@ -9,6 +9,7 @@ namespace RegExp
     class Pattern
     {
         public static string Regex_name = "^[A-Z]{1}[a-z]{2,}$";
+        public static string Regex_email = "^[0-9A-Za-z]+([._+-][0-9A-Za-z]+)*[@][0-9A-Za-z]+.[a-zA-Z]{2,3}(.[a-zA-Z]{2})?$";
         public void IsValidFirstName()
         {
             bool flag;
@@ -43,6 +44,22 @@ namespace RegExp
             while (flag == false);
 
         }
+        public void IsValidEmail()
+        {
+            bool flag;
+            Console.WriteLine("Enter the Email");
+            do
+            {
+                string Email = Console.ReadLine();
+                flag = (Regex.IsMatch(Email, Regex_email));
+                if (flag == true)
+                    Console.WriteLine("valid");
+                else
+                    Console.WriteLine("Invalid, Type again");
 
+            }
+            while (!flag);
+
+        }
     }
 }

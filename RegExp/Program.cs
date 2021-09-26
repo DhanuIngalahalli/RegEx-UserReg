@@ -8,8 +8,9 @@ namespace RegExp
         {
             Console.WriteLine("Welcome to User registration");
             Pattern pattern = new Pattern();
-           // pattern.IsValidFirstName();
-            pattern.IsValidLastName();
+            // pattern.IsValidFirstName();
+            //pattern.IsValidLastName();
+            pattern.IsValidEmail();
         }
     }
 }
