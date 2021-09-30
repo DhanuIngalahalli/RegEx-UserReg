@@ -6,51 +6,74 @@ namespace TestRegEx
     [TestClass]
     public class UnitTest1
     {
-        Pattern pattern = new Pattern();
-        /// <summary>
-        /// Tests the first name
-        /// </summary>
+        private readonly Pattern patternsMatch = new Pattern();
+
         [TestMethod]
-        public string TestFirstName()
+        public void GivenFirstName_ShouldThrow_UserRegistrationCustomException()
         {
-            string result = pattern.IsValidFirstName();
-            Assert.IsTrue(result);
+            try
+            {
+                bool expected = true;
+                Assert.AreEqual(expected, patternsMatch.ValidateFirstName(null));
+            }
+            catch (UserRegistrationCustomException e)
+            {
+                Assert.AreEqual("Invalid FirstName", e.Message);
+
+            }
         }
-        /// <summary>
-        /// Tests the last name
-        /// </summary>
         [TestMethod]
-        public void TestLastName()
+        public void GivenLastName_ShouldThrow_UserRegistrationCustomException()
         {
-            bool result1 = pattern.validateLastName("Chaudhari");
-            Assert.IsTrue(result1);
+            try
+            {
+                bool expected = true;
+                Assert.AreEqual(expected, patternsMatch.ValidateLastName(null));
+            }
+            catch (UserRegistrationCustomException e)
+            {
+                Assert.AreEqual("Invalid LastName", e.Message);
+            }
         }
-        /// <summary>
-        /// Tests the Email ID
-        /// </summary>
         [TestMethod]
-        public void TestEmail()
+        public void GivenEmailId_ShouldThrow_UserRegistrationCustomException()
         {
-            bool result2 = pattern.validateEmailId("spchaudhari80@gmail.com");
-            Assert.IsTrue(result2);
+            try
+            {
+                bool expected = true;
+                Assert.AreEqual(expected, patternsMatch.ValidateEmailId(null));
+            }
+            catch (UserRegistrationCustomException e)
+            {
+                Assert.AreEqual("Invalid Email ID", e.Message);
+            }
         }
-        /// <summary>
-        /// Tests the mobile number
-        /// </summary>
         [TestMethod]
-        public void TestMobileNumber()
+        public void GivenMobileNumber_ShouldThrow_UserRegistrationCustomException()
         {
-            bool result3 = pattern.validatePhoneNumber("9862583253");
-            Assert.IsTrue(result3);
+            try
+            {
+                bool expected = true;
+                Assert.AreEqual(expected, patternsMatch.ValidateMobileNumber(null));
+            }
+            catch (UserRegistrationCustomException e)
+            {
+                Assert.AreEqual("Invalid Mobile Number", e.Message);
+            }
         }
-        /// <summary>
-        /// Test passwords
-        /// </summary>
         [TestMethod]
-        public void Testpassword()
+        public void GivenPassword_ShouldThrow_UserRegistrationCustomException()
         {
-            bool result4 = pattern.validatePassWord("Samik@chau80");
-            Assert.IsTrue(result4);
+            try
+            {
+                bool expected = true;
+                Assert.AreEqual(expected, patternsMatch.ValidatePassword(null));
+            }
+            catch (UserRegistrationCustomException e)
+            {
+                Assert.AreEqual("Invalid Password", e.Message);
+            }
         }
+
     }
 }

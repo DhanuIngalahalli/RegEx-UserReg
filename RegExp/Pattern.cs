@@ -6,103 +6,52 @@ using System.Text.RegularExpressions;
 
 namespace RegExp
 {
-    class Pattern
+    public class Pattern
     {
+        //regex patterns
         public static string Regex_name = "^[A-Z]{1}[a-z]{2,}$";
         public static string Regex_email = "^[0-9A-Za-z]+([._+-][0-9A-Za-z]+)*[@][0-9A-Za-z]+.[a-zA-Z]{2,3}(.[a-zA-Z]{2})?$";
         public static string Regex_phone = "^[1-9]{1}[0-9]{1}\\s[1-9]{1}[0-9]{9}$";
         public static string Regex_password = "(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+=-])[a-zA-Z0-9!@#$%^&*()_+=-]{8,}$";
-        public void IsValidFirstName()
+        public bool ValidateFirstName(string firstName)//method to check firstname
         {
-            bool flag;
-            Console.WriteLine("Enter the first name");
-
-            do
+            if (firstName == null)
             {
-                string firstname = Console.ReadLine();
-                flag = (Regex.IsMatch(firstname, Regex_name));
-                if (flag == true)
-                    Console.WriteLine("valid");
-                else
-                    Console.WriteLine("Invalid, Type again");
+                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionsType.Invalid_MESSAGE, "Invalid FirstName");
             }
-            while (flag == false);
-
+            return Regex.IsMatch(firstName, Regex_name);
         }
-        public void IsValidLastName()
+        public bool ValidateLastName(string lastName)//method to check lastname
         {
-            bool flag;
-            Console.WriteLine("Enter the last name");
-
-            do
+            if (lastName == null)
             {
-                string lastname = Console.ReadLine();
-                flag = (Regex.IsMatch(lastname, Regex_name));
-                if (flag == true)
-                    Console.WriteLine("valid");
-                else
-                    Console.WriteLine("Invalid, Type again");
+                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionsType.Invalid_MESSAGE, "Invalid LastName");
             }
-            while (flag == false);
-
+            return Regex.IsMatch(lastName, Regex_name);
         }
-        public void IsValidEmail()
+        public bool ValidateEmailId(string emailId)//method to check mailId
         {
-            bool flag;
-            Console.WriteLine("Enter the Email");
-            do
+            if (emailId == null)
             {
-                string Email = Console.ReadLine();
-                flag = (Regex.IsMatch(Email, Regex_email));
-                if (flag == true)
-                    Console.WriteLine("valid");
-                else
-                    Console.WriteLine("Invalid, Type again");
-
+                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionsType.Invalid_MESSAGE, "Invalid Email ID");
             }
-            while (!flag);
-
+            return Regex.IsMatch(emailId, Regex_email);
         }
-        public void IsValidPhoneNo()
+        public bool ValidateMobileNumber(string mobileNumber)//method to check mobileno
         {
-            bool flag;
-            Console.WriteLine("Enter the Phone number");
-            do
+            if (mobileNumber == null)
             {
-                string Phone = Console.ReadLine();
-                flag = (Regex.IsMatch(Phone, Regex_phone));
-                if (flag == true)
-                    Console.WriteLine("valid");
-                else
-                    Console.WriteLine("Invalid, Type again");
-
+                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionsType.Invalid_MESSAGE, "Invalid Mobile Number");
             }
-            while (!flag);
+            return Regex.IsMatch(mobileNumber, Regex_phone);
         }
-
-        public void IsValidPasswordRule4()
+        public bool ValidatePassword(string password)//method to check password
         {
-            bool flag;
-            Console.WriteLine("Enter the Password: minimum 8 character");
-            do
+            if (password == null)
             {
-                string Password = Console.ReadLine();
-                flag = (Regex.IsMatch(Password, Regex_password));
-                if (flag == true)
-                    Console.WriteLine("valid");
-                else
-                    Console.WriteLine("Invalid, Type again");
-
+                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionsType.Invalid_MESSAGE, "Invalid Password");
             }
-            while (!flag);
-        }
-        public void IsValidSampleEmail(string SampleEmail)
-        {
-            bool flag = (Regex.IsMatch(SampleEmail, Regex_email));
-            if (flag == true)
-                Console.WriteLine("valid");
-            else
-                Console.WriteLine("Invalid");
+            return Regex.IsMatch(password, Regex_password);
 
         }
 
